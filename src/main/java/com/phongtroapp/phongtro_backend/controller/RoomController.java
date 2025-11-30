@@ -2,10 +2,7 @@ package com.phongtroapp.phongtro_backend.controller;
 
 import com.phongtroapp.phongtro_backend.model.RentalRoom;
 import com.phongtroapp.phongtro_backend.service.impl.RentalRoomServiceImpl;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,4 +20,14 @@ public class RoomController {
     public List<RentalRoom> getFeaturedRooms() {
         return roomService.getAllRooms(); // Trả về danh sách phòng
     }
+
+    @GetMapping("/roomByPriceAndCity")
+    public List<RentalRoom> locRoomHome(
+            @RequestParam("minPrice") double minPrice,
+            @RequestParam("maxPrice") double maxPrice,
+            @RequestParam("city") String city
+    ){
+        return roomService.locRoomHome(minPrice,maxPrice,city);
+    }
+
 }

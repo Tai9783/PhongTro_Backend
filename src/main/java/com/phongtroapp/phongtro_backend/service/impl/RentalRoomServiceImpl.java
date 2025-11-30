@@ -17,9 +17,6 @@ public class RentalRoomServiceImpl implements RentalRoomService {
     @Override
     public List<RentalRoom> getAllRooms() {
         List<RentalRoom> rooms = roomRepository.findAll();
-        System.out.println("[v0] Rooms from DB: " + rooms.get(0).getRoomId());
-        System.out.println("[v0] LandlordId: " + rooms.get(0).getLandlordId());
-        System.out.println("[v0] CreatedAt: " + rooms.get(0).getCreatedAt());
         //  lọc theo trạng thái
         return rooms;
     }
@@ -28,4 +25,28 @@ public class RentalRoomServiceImpl implements RentalRoomService {
 
         return roomRepository.findByStatus(1);
     }
+
+    @Override
+    public List<RentalRoom> locRoomHome(Double minPrice, Double maxPrice, String city) {
+        if (city != null) {
+            city = city.trim();
+
+            if (city.equals("Tp HCM")) {
+                city = "Tp Hồ Chí Minh";
+            }
+            if (city.equals("Tất cả") || city.isEmpty()) {
+                city = null;
+            }
+        }
+        if (city==null){
+            return roomRepository.findByPriceBetween(minPrice, maxPrice);
+        }
+
+        List<RentalRoom> rooms= roomRepository.filterRoomsPriceCity(minPrice,maxPrice,city);
+        return rooms;
+    }
+
+
+
+
 }

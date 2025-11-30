@@ -7,4 +7,6 @@ import java.util.List;
 public interface RentalRoomService {
     List<RentalRoom> getAllRooms();
     List<RentalRoom> getAvailableRooms();
+
+    List<RentalRoom> locRoomHome(Double minPrice, Double maxPrice, String city);
 }

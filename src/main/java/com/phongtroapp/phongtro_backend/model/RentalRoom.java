@@ -18,9 +18,9 @@ public class RentalRoom {
     private String title;
     private String description;
 
-    @Column(name = "price", precision = 38, scale = 2)
+    @Column(name = "price", precision = 10, scale = 2)
     private BigDecimal price;
-    @Column(name = "area", precision = 38, scale = 2)
+    @Column(name = "area", precision = 10, scale = 2)
     private BigDecimal area;
 
     @Column(name = "images_json", columnDefinition = "json")
