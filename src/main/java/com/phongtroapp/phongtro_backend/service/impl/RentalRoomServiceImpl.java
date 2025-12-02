@@ -1,5 +1,6 @@
 package com.phongtroapp.phongtro_backend.service.impl;
 
+import com.phongtroapp.phongtro_backend.model.CityRoomCount;
 import com.phongtroapp.phongtro_backend.model.RentalRoom;
 import com.phongtroapp.phongtro_backend.repository.RentalRoomRepository;
 import com.phongtroapp.phongtro_backend.service.RentalRoomService;
@@ -41,12 +42,22 @@ public class RentalRoomServiceImpl implements RentalRoomService {
         if (city==null){
             return roomRepository.findByPriceBetween(minPrice, maxPrice);
         }
-
+        System.out.println("CITY BACKEND NHẬN = [" + city + "]");
         List<RentalRoom> rooms= roomRepository.filterRoomsPriceCity(minPrice,maxPrice,city);
         return rooms;
     }
 
-
+    @Override
+    public List<CityRoomCount> getCity(){
+        List<CityRoomCount> listCity= roomRepository.findCity();
+        return listCity;
+    }
+    @Override
+    public List<String> getWard(String city){
+        List<String> listWard= roomRepository.findWard(city);
+        System.out.println("CITY BACKEND NHẬN = [" + city + "]");
+        return listWard;
+    }
 
 
 }

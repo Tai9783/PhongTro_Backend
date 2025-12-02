@@ -1,5 +1,6 @@
 package com.phongtroapp.phongtro_backend.controller;
 
+import com.phongtroapp.phongtro_backend.model.CityRoomCount;
 import com.phongtroapp.phongtro_backend.model.RentalRoom;
 import com.phongtroapp.phongtro_backend.service.impl.RentalRoomServiceImpl;
 import org.springframework.web.bind.annotation.*;
@@ -29,5 +30,16 @@ public class RoomController {
     ){
         return roomService.locRoomHome(minPrice,maxPrice,city);
     }
+
+    @GetMapping("/listCity")
+    public List<CityRoomCount> getListCity(){
+         return roomService.getCity();
+    }
+
+    @GetMapping("/listWard")
+    public List<String> getWard(@RequestParam("city") String city){
+        return roomService.getWard(city);
+    }
+
 
 }
