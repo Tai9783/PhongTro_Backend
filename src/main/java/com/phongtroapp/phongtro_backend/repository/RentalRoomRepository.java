@@ -1,6 +1,8 @@
 package com.phongtroapp.phongtro_backend.repository;
 
 import com.phongtroapp.phongtro_backend.model.CityRoomCount;
+import com.phongtroapp.phongtro_backend.model.FilterRoomRequest;
+import com.phongtroapp.phongtro_backend.model.PriceRange;
 import com.phongtroapp.phongtro_backend.model.RentalRoom;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -8,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
-public interface RentalRoomRepository extends JpaRepository<RentalRoom,String> {
+public interface RentalRoomRepository extends JpaRepository<RentalRoom,String>,RentalRoomRepositoryCustom {
     List<RentalRoom> findByStatus(int status); // ds phong trong
 
         @Query("SELECT r FROM RentalRoom r WHERE " +
@@ -25,8 +27,5 @@ public interface RentalRoomRepository extends JpaRepository<RentalRoom,String> {
             "WHERE r.status = 1 AND " +
             "(:city IS NULL OR LOWER(r.city) LIKE LOWER(CONCAT('%', :city, '%')))")
     List<String>findWard(String city);
-
-
-
 
 }

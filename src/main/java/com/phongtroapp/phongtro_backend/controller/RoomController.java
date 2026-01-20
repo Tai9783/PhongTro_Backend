@@ -1,6 +1,7 @@
 package com.phongtroapp.phongtro_backend.controller;
 
 import com.phongtroapp.phongtro_backend.model.CityRoomCount;
+import com.phongtroapp.phongtro_backend.model.FilterRoomRequest;
 import com.phongtroapp.phongtro_backend.model.RentalRoom;
 import com.phongtroapp.phongtro_backend.service.impl.RentalRoomServiceImpl;
 import org.springframework.web.bind.annotation.*;
@@ -39,6 +40,10 @@ public class RoomController {
     @GetMapping("/listWard")
     public List<String> getWard(@RequestParam("city") String city){
         return roomService.getWard(city);
+    }
+    @PostMapping("/filterRoom")
+    public List<RentalRoom> getListRoom(@RequestBody FilterRoomRequest request){
+        return roomService.getListRoomByFilter(request);
     }
 
 

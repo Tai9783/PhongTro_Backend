@@ -2,8 +2,12 @@ package com.phongtroapp.phongtro_backend.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.web.bind.annotation.Mapping;
 
 @Entity
 @Table(name = "rentalroom")
@@ -40,6 +44,23 @@ public class RentalRoom {
 
     @Column(name = "ward")
     private String ward;
+
+    @ManyToMany
+    @JoinTable(
+            name = "amenity_room",
+            joinColumns = @JoinColumn(name = "roomId"),// Khóa ngoại trỏ tới bảng rentalroom
+            inverseJoinColumns = @JoinColumn(name = "amenityId") // Khóa ngoại trỏ tới bảng amenity
+
+    )
+    private Set<Amenity> listAmenities = new HashSet<>();
+
+    public Set<Amenity> getAmenities() {
+        return listAmenities;
+    }
+
+    public void setAmenities(Set<Amenity> amenities) {
+        this.listAmenities = amenities;
+    }
 
     public String getRoomId() {
         return roomId;
