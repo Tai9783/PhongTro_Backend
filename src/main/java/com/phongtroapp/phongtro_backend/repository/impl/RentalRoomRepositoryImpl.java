@@ -1,8 +1,9 @@
-package com.phongtroapp.phongtro_backend.repository;
+package com.phongtroapp.phongtro_backend.repository.impl;
 
 import com.phongtroapp.phongtro_backend.model.Amenity;
 import com.phongtroapp.phongtro_backend.model.PriceRange;
 import com.phongtroapp.phongtro_backend.model.RentalRoom;
+import com.phongtroapp.phongtro_backend.repository.RentalRoomRepositoryCustom;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.criteria.*;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class RentalRoomRepositoryImpl implements RentalRoomRepositoryCustom{
+public class RentalRoomRepositoryImpl implements RentalRoomRepositoryCustom {
 
     @PersistenceContext
     private EntityManager em; //quản lý kho dữ liệu

@@ -4,13 +4,12 @@ import com.phongtroapp.phongtro_backend.model.CityRoomCount;
 import com.phongtroapp.phongtro_backend.model.FilterRoomRequest;
 import com.phongtroapp.phongtro_backend.model.PriceRange;
 import com.phongtroapp.phongtro_backend.model.RentalRoom;
-import com.phongtroapp.phongtro_backend.repository.RentalRoomRepository;
+import com.phongtroapp.phongtro_backend.repository.impl.RentalRoomRepository;
 import com.phongtroapp.phongtro_backend.service.RentalRoomService;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
