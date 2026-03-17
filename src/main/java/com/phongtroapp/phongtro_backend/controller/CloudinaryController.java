@@ -28,8 +28,8 @@ public class CloudinaryController {
         Map<String, String> response = new HashMap<>();
         response.put("timestamp", String.valueOf(timestamp));
         response.put("signature", signature);
-        response.put("api_key", cloudinary.config.apiKey);
-        response.put("cloud_name", cloudinary.config.cloudName);
+        response.put("apiKey", cloudinary.config.apiKey);
+        response.put("cloudName", cloudinary.config.cloudName);
 
         return response;
     }

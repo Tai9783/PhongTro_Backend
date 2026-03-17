@@ -3,8 +3,10 @@ package com.phongtroapp.phongtro_backend.model;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import com.phongtroapp.phongtro_backend.utils.StringListConverter;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.web.bind.annotation.Mapping;
@@ -27,8 +29,9 @@ public class RentalRoom {
     @Column(name = "area", precision = 10, scale = 2)
     private BigDecimal area;
 
+    @Convert(converter = StringListConverter.class)
     @Column(name = "images_json", columnDefinition = "json")
-    private String imagesJson;
+    private List<String> imagesJson;
 
 
     private int status;
@@ -110,11 +113,11 @@ public class RentalRoom {
         this.area = area;
     }
 
-    public String getImagesJson() {
+    public List<String> getImagesJson() {
         return imagesJson;
     }
 
-    public void setImagesJson(String imagesJson) {
+    public void setImagesJson(List<String> imagesJson) {
         this.imagesJson = imagesJson;
     }
 
@@ -158,19 +161,11 @@ public class RentalRoom {
         this.ward = ward;
     }
 
-    public RentalRoom(String roomId, String landlordId, String title, String description, BigDecimal price, BigDecimal area, String imagesJson, int status, LocalDateTime createdAt, String address, String city, String ward) {
-        this.roomId = roomId;
-        this.landlordId = landlordId;
-        this.title = title;
-        this.description = description;
-        this.price = price;
-        this.area = area;
-        this.imagesJson = imagesJson;
-        this.status = status;
-        this.createdAt = createdAt;
-        this.address = address;
-        this.city = city;
-        this.ward = ward;
+    public Set<Amenity> getListAmenities() {
+        return listAmenities;
     }
-    public RentalRoom() {}
+
+    public void setListAmenities(Set<Amenity> listAmenities) {
+        this.listAmenities = listAmenities;
+    }
 }
