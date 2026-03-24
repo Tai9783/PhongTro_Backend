@@ -1,8 +1,7 @@
 package com.phongtroapp.phongtro_backend.service;
 
-import com.phongtroapp.phongtro_backend.model.CityRoomCount;
-import com.phongtroapp.phongtro_backend.model.FilterRoomRequest;
-import com.phongtroapp.phongtro_backend.model.PriceRange;
+import com.phongtroapp.phongtro_backend.dto.CityRoomCount;
+import com.phongtroapp.phongtro_backend.dto.FilterRoomRequest;
 import com.phongtroapp.phongtro_backend.model.RentalRoom;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.phongtroapp.phongtro_backend.model;
+package com.phongtroapp.phongtro_backend.dto;
 
 public class CityRoomCount {
     private String city;

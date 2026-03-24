@@ -1,8 +1,8 @@
 package com.phongtroapp.phongtro_backend.service.impl;
 
-import com.phongtroapp.phongtro_backend.model.CityRoomCount;
-import com.phongtroapp.phongtro_backend.model.FilterRoomRequest;
-import com.phongtroapp.phongtro_backend.model.PriceRange;
+import com.phongtroapp.phongtro_backend.dto.CityRoomCount;
+import com.phongtroapp.phongtro_backend.dto.FilterRoomRequest;
+import com.phongtroapp.phongtro_backend.dto.PriceRange;
 import com.phongtroapp.phongtro_backend.model.RentalRoom;
 import com.phongtroapp.phongtro_backend.repository.impl.RentalRoomRepository;
 import com.phongtroapp.phongtro_backend.service.RentalRoomService;

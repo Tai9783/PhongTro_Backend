@@ -1,7 +1,7 @@
 package com.phongtroapp.phongtro_backend.repository.impl;
 
 import com.phongtroapp.phongtro_backend.model.Amenity;
-import com.phongtroapp.phongtro_backend.model.PriceRange;
+import com.phongtroapp.phongtro_backend.dto.PriceRange;
 import com.phongtroapp.phongtro_backend.model.RentalRoom;
 import com.phongtroapp.phongtro_backend.repository.RentalRoomRepositoryCustom;
 import jakarta.persistence.EntityManager;

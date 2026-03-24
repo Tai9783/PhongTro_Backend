@@ -1,6 +1,6 @@
 package com.phongtroapp.phongtro_backend.repository.impl;
 
-import com.phongtroapp.phongtro_backend.model.CityRoomCount;
+import com.phongtroapp.phongtro_backend.dto.CityRoomCount;
 import com.phongtroapp.phongtro_backend.model.RentalRoom;
 import com.phongtroapp.phongtro_backend.repository.RentalRoomRepositoryCustom;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,6 +1,6 @@
 package com.phongtroapp.phongtro_backend.repository;
 
-import com.phongtroapp.phongtro_backend.model.PriceRange;
+import com.phongtroapp.phongtro_backend.dto.PriceRange;
 import com.phongtroapp.phongtro_backend.model.RentalRoom;
 
 import java.util.List;
