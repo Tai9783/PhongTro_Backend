@@ -3,18 +3,29 @@ package com.phongtroapp.phongtro_backend.service.impl;
 import com.phongtroapp.phongtro_backend.dto.CityRoomCount;
 import com.phongtroapp.phongtro_backend.dto.FilterRoomRequest;
 import com.phongtroapp.phongtro_backend.dto.PriceRange;
+import com.phongtroapp.phongtro_backend.dto.RentalRoomRequest;
+import com.phongtroapp.phongtro_backend.model.Amenity;
 import com.phongtroapp.phongtro_backend.model.RentalRoom;
+import com.phongtroapp.phongtro_backend.repository.impl.AmenityRepository;
 import com.phongtroapp.phongtro_backend.repository.impl.RentalRoomRepository;
 import com.phongtroapp.phongtro_backend.service.RentalRoomService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
 public class RentalRoomServiceImpl implements RentalRoomService {
     private final RentalRoomRepository roomRepository;
+
+    @Autowired
+    private AmenityRepository amenityRepository;
 
     public RentalRoomServiceImpl(RentalRoomRepository roomRepository) {
         this.roomRepository = roomRepository;
@@ -101,6 +112,31 @@ public class RentalRoomServiceImpl implements RentalRoomService {
         }
 
         return roomRepository.filterRoomBySearch(nameCity,listWard,listPrices,listAmenity);
+    }
+
+    @Override
+    public RentalRoom saveRoom(RentalRoomRequest rentalRoomRequest) {
+        RentalRoom rentalRoom= new RentalRoom();
+        rentalRoom.setRoomId(UUID.randomUUID().toString());
+        rentalRoom.setLandlordId(rentalRoomRequest.getLandlordId());
+        rentalRoom.setTitle(rentalRoomRequest.getTitle());
+        rentalRoom.setDescription(rentalRoomRequest.getDescription());
+        if(rentalRoomRequest.getPrice()!= null)
+            rentalRoom.setPrice(BigDecimal.valueOf(rentalRoomRequest.getPrice()));
+        if(rentalRoomRequest.getArea()!=null)
+            rentalRoom.setArea(BigDecimal.valueOf(rentalRoomRequest.getArea()));
+        rentalRoom.setImagesJson(rentalRoomRequest.getImagesJson());
+        rentalRoom.setStatus(1); //status là trạng thái phòng trống hoặc đã có người ở nếu khi nhấn vào đăng tin thì chắc chắn phòng đó trống nên sẽ set cứng là 1(phòng trống)
+        rentalRoom.setCreatedAt(LocalDateTime.now());
+        rentalRoom.setAddress(rentalRoomRequest.getAddress());
+        rentalRoom.setCity(rentalRoomRequest.getCity());
+        rentalRoom.setWard(rentalRoomRequest.getWard());
+
+        List<Amenity> foundAmenities= amenityRepository.findAllById(rentalRoomRequest.getAmenities());
+
+        rentalRoom.setAmenities(new HashSet<>(foundAmenities));
+
+        return roomRepository.save(rentalRoom);// chỉ cần có RoomRepository thì hệ thống tự sinh ra hàm thêm/lưu
     }
 
 

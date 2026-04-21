@@ -2,8 +2,11 @@ package com.phongtroapp.phongtro_backend.controller;
 
 import com.phongtroapp.phongtro_backend.dto.CityRoomCount;
 import com.phongtroapp.phongtro_backend.dto.FilterRoomRequest;
+import com.phongtroapp.phongtro_backend.dto.RentalRoomRequest;
 import com.phongtroapp.phongtro_backend.model.RentalRoom;
 import com.phongtroapp.phongtro_backend.service.impl.RentalRoomServiceImpl;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -46,5 +49,12 @@ public class RoomController {
         return roomService.getListRoomByFilter(request);
     }
 
-
+    @PostMapping("/createRentalRoom")
+    public ResponseEntity<?> createRoom(@RequestBody RentalRoomRequest rentalRoomRequest){
+        RentalRoom savedRoom= roomService.saveRoom(rentalRoomRequest);
+        if(savedRoom!=null)
+            return ResponseEntity.status(HttpStatus.CREATED).body(savedRoom);
+        else
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Failed to create rental room");
+    }
 }

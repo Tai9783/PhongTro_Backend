@@ -2,6 +2,7 @@ package com.phongtroapp.phongtro_backend.service;
 
 import com.phongtroapp.phongtro_backend.dto.CityRoomCount;
 import com.phongtroapp.phongtro_backend.dto.FilterRoomRequest;
+import com.phongtroapp.phongtro_backend.dto.RentalRoomRequest;
 import com.phongtroapp.phongtro_backend.model.RentalRoom;
 
 import java.util.List;
@@ -14,4 +15,5 @@ public interface RentalRoomService {
     List<CityRoomCount> getCity();
     List<String> getWard(String city);
     List<RentalRoom> getListRoomByFilter(FilterRoomRequest requestRoom);
+    RentalRoom saveRoom(RentalRoomRequest rentalRoomRequest);
 }

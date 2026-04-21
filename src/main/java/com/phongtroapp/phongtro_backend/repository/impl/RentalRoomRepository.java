@@ -27,4 +27,5 @@ public interface RentalRoomRepository extends JpaRepository<RentalRoom,String>, 
             "(:city IS NULL OR LOWER(r.city) LIKE LOWER(CONCAT('%', :city, '%')))")
     List<String>findWard(String city);
 
+
 }
