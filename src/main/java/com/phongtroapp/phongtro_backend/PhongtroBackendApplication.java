@@ -9,5 +9,4 @@ public class PhongtroBackendApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PhongtroBackendApplication.class, args);
 	}
-
 }
