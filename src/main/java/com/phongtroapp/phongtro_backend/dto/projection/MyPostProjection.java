@@ -1,8 +1,8 @@
-package com.phongtroapp.phongtro_backend.dto;
+package com.phongtroapp.phongtro_backend.dto.projection;
 
 import java.time.LocalDateTime;
 
-public interface MyPost {
+public interface MyPostProjection {
     String getPostId();
     String getRoomId();
     boolean getStatus();

@@ -2,16 +2,16 @@ package com.phongtroapp.phongtro_backend.controller;
 
 
 import com.phongtroapp.phongtro_backend.model.User;
-import com.phongtroapp.phongtro_backend.service.impl.UserServiceImpl;
+import com.phongtroapp.phongtro_backend.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/user")
 @CrossOrigin(origins = "*")
 public class UserController {
-    private final UserServiceImpl userService;
+    private final UserService userService;
 
-    public UserController(UserServiceImpl userService) {
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 

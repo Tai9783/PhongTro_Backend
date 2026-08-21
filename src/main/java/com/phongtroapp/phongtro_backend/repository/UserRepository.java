@@ -1,4 +1,4 @@
-package com.phongtroapp.phongtro_backend.repository.impl;
+package com.phongtroapp.phongtro_backend.repository;
 
 import com.phongtroapp.phongtro_backend.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;

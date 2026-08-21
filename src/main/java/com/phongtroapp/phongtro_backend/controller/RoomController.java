@@ -4,7 +4,7 @@ import com.phongtroapp.phongtro_backend.dto.CityRoomCount;
 import com.phongtroapp.phongtro_backend.dto.FilterRoomRequest;
 import com.phongtroapp.phongtro_backend.dto.RentalRoomRequest;
 import com.phongtroapp.phongtro_backend.model.RentalRoom;
-import com.phongtroapp.phongtro_backend.service.impl.RentalRoomServiceImpl;
+import com.phongtroapp.phongtro_backend.service.RentalRoomService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +15,9 @@ import java.util.List;
 @RequestMapping("/api/rooms")
 @CrossOrigin(origins = "*")
 public class RoomController {
-    private final RentalRoomServiceImpl roomService;
+    private final RentalRoomService roomService;
 
-    public RoomController(RentalRoomServiceImpl roomService) {
+    public RoomController(RentalRoomService roomService) {
         this.roomService = roomService;
     }
     // API Endpoint: GET http://localhost:8080/api/rooms/featured

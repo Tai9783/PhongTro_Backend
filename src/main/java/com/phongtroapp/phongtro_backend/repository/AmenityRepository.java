@@ -1,9 +1,10 @@
-package com.phongtroapp.phongtro_backend.repository.impl;
+package com.phongtroapp.phongtro_backend.repository;
 
-import com.phongtroapp.phongtro_backend.model.RoomPost;
+import com.phongtroapp.phongtro_backend.model.Amenity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface RoomPostRepository extends JpaRepository<RoomPost,String> {
+
+public interface AmenityRepository extends JpaRepository<Amenity,String> {
     //--Các hàm có sẵn được Spring boot hỗ trợ và ko cần code
     // 1. save(entity): Lưu hoặc cập nhật
     // 2. findById(id): Tìm theo 1 ID

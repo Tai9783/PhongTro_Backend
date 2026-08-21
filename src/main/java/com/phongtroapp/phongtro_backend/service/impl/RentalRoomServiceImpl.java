@@ -6,10 +6,9 @@ import com.phongtroapp.phongtro_backend.dto.PriceRange;
 import com.phongtroapp.phongtro_backend.dto.RentalRoomRequest;
 import com.phongtroapp.phongtro_backend.model.Amenity;
 import com.phongtroapp.phongtro_backend.model.RentalRoom;
-import com.phongtroapp.phongtro_backend.repository.impl.AmenityRepository;
-import com.phongtroapp.phongtro_backend.repository.impl.RentalRoomRepository;
+import com.phongtroapp.phongtro_backend.repository.AmenityRepository;
+import com.phongtroapp.phongtro_backend.repository.RentalRoomRepository;
 import com.phongtroapp.phongtro_backend.service.RentalRoomService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -23,12 +22,11 @@ import java.util.stream.Collectors;
 @Service
 public class RentalRoomServiceImpl implements RentalRoomService {
     private final RentalRoomRepository roomRepository;
+    private final AmenityRepository amenityRepository;
 
-    @Autowired
-    private AmenityRepository amenityRepository;
-
-    public RentalRoomServiceImpl(RentalRoomRepository roomRepository) {
+    public RentalRoomServiceImpl(RentalRoomRepository roomRepository, AmenityRepository amenityRepository) {
         this.roomRepository = roomRepository;
+        this.amenityRepository = amenityRepository;
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.phongtroapp.phongtro_backend.controller;
 
 import com.phongtroapp.phongtro_backend.dto.MyPostResponse;
-import com.phongtroapp.phongtro_backend.service.impl.MyPostServiceImpl;
+import com.phongtroapp.phongtro_backend.service.MyPostService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,9 +10,9 @@ import java.util.List;
 @RequestMapping("/api/mypost/")
 @CrossOrigin(origins = "*")
 public class MyPostController {
-    private final MyPostServiceImpl myPostService;
+    private final MyPostService myPostService;
 
-    public MyPostController(MyPostServiceImpl myPostService) {
+    public MyPostController(MyPostService myPostService) {
         this.myPostService = myPostService;
     }
 

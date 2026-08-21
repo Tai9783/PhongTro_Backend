@@ -1,6 +1,6 @@
-package com.phongtroapp.phongtro_backend.repository.impl;
+package com.phongtroapp.phongtro_backend.repository;
 
-import com.phongtroapp.phongtro_backend.dto.MyPost;
+import com.phongtroapp.phongtro_backend.dto.projection.MyPostProjection;
 import com.phongtroapp.phongtro_backend.model.RentalRoom;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,5 +16,5 @@ public interface MyPostRepository extends JpaRepository<RentalRoom,String> {
             "FROM rentalroom r JOIN advertisementpost a ON r.roomId = a.roomId " +
             "WHERE r.landlordId = :landlordId " +
             "ORDER BY a.createdAt DESC", nativeQuery = true)
-    List<MyPost> getListPost(@Param("landlordId") String landlordId);
+    List<MyPostProjection> getListPost(@Param("landlordId") String landlordId);
 }

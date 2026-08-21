@@ -1,18 +1,21 @@
 package com.phongtroapp.phongtro_backend.service.impl;
 
 import com.phongtroapp.phongtro_backend.model.RoomPost;
-import com.phongtroapp.phongtro_backend.repository.impl.RoomPostRepository;
-import com.phongtroapp.phongtro_backend.service.RoomPostServer;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.phongtroapp.phongtro_backend.repository.RoomPostRepository;
+import com.phongtroapp.phongtro_backend.service.RoomPostService;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
 @Service
-public class RoomPostServerImp implements RoomPostServer {
+public class RoomPostServiceImpl implements RoomPostService {
 
-    @Autowired
-    private RoomPostRepository roomPostRepository;
+    private final RoomPostRepository roomPostRepository;
+
+    public RoomPostServiceImpl(RoomPostRepository roomPostRepository) {
+        this.roomPostRepository = roomPostRepository;
+    }
+
     @Override
     public RoomPost saveRoomPost(String roomId) {
         String postId= UUID.randomUUID().toString();

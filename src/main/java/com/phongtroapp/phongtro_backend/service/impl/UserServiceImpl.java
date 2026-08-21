@@ -1,7 +1,7 @@
 package com.phongtroapp.phongtro_backend.service.impl;
 
 import com.phongtroapp.phongtro_backend.model.User;
-import com.phongtroapp.phongtro_backend.repository.impl.UserRepository;
+import com.phongtroapp.phongtro_backend.repository.UserRepository;
 import com.phongtroapp.phongtro_backend.service.UserService;
 import org.springframework.stereotype.Service;
 
