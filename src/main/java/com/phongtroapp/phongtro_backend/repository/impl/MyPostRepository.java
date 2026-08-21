@@ -14,6 +14,7 @@ public interface MyPostRepository extends JpaRepository<RentalRoom,String> {
             "r.title AS title, r.price AS price, r.area AS area, " +
             "r.images_json AS imageJson " +
             "FROM rentalroom r JOIN advertisementpost a ON r.roomId = a.roomId " +
-            "WHERE r.landlordId = :landlordId", nativeQuery = true)
+            "WHERE r.landlordId = :landlordId " +
+            "ORDER BY a.createdAt DESC", nativeQuery = true)
     List<MyPost> getListPost(@Param("landlordId") String landlordId);
 }

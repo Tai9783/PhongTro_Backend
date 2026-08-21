@@ -1,6 +1,6 @@
 package com.phongtroapp.phongtro_backend.controller;
 
-import com.phongtroapp.phongtro_backend.dto.MyPost;
+import com.phongtroapp.phongtro_backend.dto.MyPostResponse;
 import com.phongtroapp.phongtro_backend.service.impl.MyPostServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +17,7 @@ public class MyPostController {
     }
 
     @GetMapping("/getListPost")
-    public List<MyPost> getListPhong(
+    public List<MyPostResponse> getListPhong(
             @RequestParam("landlordId") String landlordId
     ){
         return myPostService.getListPost(landlordId);
