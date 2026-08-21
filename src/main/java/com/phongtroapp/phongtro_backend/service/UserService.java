@@ -1,9 +1,9 @@
 package com.phongtroapp.phongtro_backend.service;
 
-import com.phongtroapp.phongtro_backend.model.User;
+import com.phongtroapp.phongtro_backend.dto.UserResponse;
 
 public interface UserService {
-    User getUser(String taikhoan, String pass);
+    UserResponse getUser(String taikhoan, String pass);
 
-    User getUserById(String userId);
+    UserResponse getUserById(String userId);
 }
