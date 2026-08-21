@@ -9,8 +9,6 @@ import java.util.Set;
 import com.phongtroapp.phongtro_backend.utils.StringListConverter;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.web.bind.annotation.Mapping;
-
 @Entity
 @Table(name = "rentalroom")
 public class RentalRoom {

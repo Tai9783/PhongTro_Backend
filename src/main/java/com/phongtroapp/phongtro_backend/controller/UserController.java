@@ -3,7 +3,6 @@ package com.phongtroapp.phongtro_backend.controller;
 
 import com.phongtroapp.phongtro_backend.model.User;
 import com.phongtroapp.phongtro_backend.service.impl.UserServiceImpl;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

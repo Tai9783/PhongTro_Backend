@@ -3,7 +3,6 @@ package com.phongtroapp.phongtro_backend.repository.impl;
 import com.phongtroapp.phongtro_backend.model.Amenity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
 
 public interface AmenityRepository extends JpaRepository<Amenity,String> {
     //--Các hàm có sẵn được Spring boot hỗ trợ và ko cần code
